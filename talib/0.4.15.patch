@@ -1,0 +1,11 @@
+--- setup.py.orig	2018-01-11 19:41:27.000000000 +0000
++++ setup.py	2018-02-20 10:56:31.860710236 +0000
+@@ -10,7 +10,7 @@
+ query_only = any('--' + opt in sys.argv for opt in display_option_names) or len(sys.argv) < 2 or sys.argv[1] == 'egg_info'
+ 
+ # Use setuptools for querying the package, normal builds use distutils
+-if query_only or 'sdist' in sys.argv:
++if query_only or 'sdist' or 'bdist_wheel' in sys.argv:
+     try:
+         from setuptools import setup, Extension
+     except ImportError:
